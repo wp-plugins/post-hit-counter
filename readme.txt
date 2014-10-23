@@ -34,11 +34,11 @@ Installing "Post Hit Counter" can be done either by searching for "Post Hit Coun
 == Changelog ==
 
 = 1.0 =
-* 2014-10-21
+* 2014-10-22
 * Initial release #boom
 
 == Upgrade Notice ==
 
 = 1.0 =
-* 2014-10-21
+* 2014-10-22
 * Initial release #boom
