@@ -4,7 +4,7 @@ Donate link: http://www.hughlashbrooke.com/donate
 Tags: post, views, counter, hits
 Requires at least: 4.0
 Tested up to: 4.0.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,10 @@ Installing "Post Hit Counter" can be done either by searching for "Post Hit Coun
 
 == Changelog ==
 
+= 1.1.1 =
+* 2014-11-27
+* [TWEAK] Changing 'Hits' to 'Hit' in admin bar when hit counter is on 1
+
 = 1.1 =
 * 2014-11-24
 * [NEW] Adding support for all post types
@@ -57,6 +61,10 @@ Installing "Post Hit Counter" can be done either by searching for "Post Hit Coun
 * Initial release #boom
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+* 2014-11-27
+* Changing 'Hits' to 'Hit' in admin bar when hit counter is on 1
 
 = 1.1 =
 * 2014-11-24
