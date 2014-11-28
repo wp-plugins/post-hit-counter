@@ -12,7 +12,7 @@ A counter to track how many times your posts are viewed.
 
 == Description ==
 
-"Post Hit Counter" does what it says on the tin - it counts how many hits your posts receive. Hit counts are displayed in a new column in the post list table, in the submit box on the post edit screen and in the admin bar on the frontend. By default, this plugin counts hits for *all* post types, including pages, but you can select the post types for which you would like to track hits.
+"Post Hit Counter" does what it says on the tin - it counts how many hits your posts receive. Hit counts are displayed in a new column in the post list table, in the submit box on the post edit screen and in the admin bar on the frontend.
 
 **Plugin Features**
 
