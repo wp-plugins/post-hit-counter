@@ -16,13 +16,13 @@ A counter to track how many times your posts are viewed.
 
 **Plugin Features**
 
-- Option to select which post types must be counted
-- Option to select which user roles should not trigger the hit counter
 - Easily visible hit counts in the dashboard and in the admin bar on the frontend
 - Shortcode to display view count for current or specified post
 - Widget to display your most viewed posts anywhere on your site
 - Dashboard widget to show your most viewed posts at a glance
 - No complicated analytics and statistics to wade through
+- Option to select which post types must be counted
+- Option to select which user roles should not trigger the hit counter
 
 This is not meant as a replacement for more advanced analytics plugins - it is a counter so you can see which of your posts are more popular without diving too deeply into complicated viewing statistics.
 
