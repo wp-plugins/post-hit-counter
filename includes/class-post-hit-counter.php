@@ -134,7 +134,7 @@ class Post_Hit_Counter {
 		add_action( 'wp_dashboard_setup', array( $this, 'register_dashboard_widgets' ) );
 
 		// Add shortcodes
-		add_shortcode( 'post_views', array( $this, 'post_views_shortcode' ) );
+		add_shortcode( 'hit_count', array( $this, 'hit_count_shortcode' ) );
 
 		if( ! $this->active_types ) {
 			$post_types = get_post_types();
@@ -401,16 +401,16 @@ class Post_Hit_Counter {
 	}
 
 	/**
-	 * Shortcode for displaying views for single post
+	 * Shortcode for displaying hit count for single post
 	 * @param  array  $atts Shortcode attributes
 	 * @return string       HTML output of shortcode
 	 */
-	public function post_views_shortcode ( $atts = array() ) {
+	public function hit_count_shortcode ( $atts = array() ) {
 
 		// Parse parameters
 		$atts = shortcode_atts( array(
 			'post' => 0,
-		), $atts, 'post_views' );
+		), $atts, 'hit_count' );
 
 		$html = '';
 		$post_id = 0;
@@ -428,7 +428,7 @@ class Post_Hit_Counter {
 		// Get shortcode output
 		if( $post_id ) {
 			$views = intval( get_post_meta( $post_id, $this->_field, true ) );
-			$html = '<span class="post-views">' . sprintf( __( 'Views: %d', 'post-hit-counter' ), $views ) . '</span>';
+			$html = '<span class="hit-count">' . sprintf( __( 'Views: %d', 'post-hit-counter' ), $views ) . '</span>';
 		}
 
 		// Return output

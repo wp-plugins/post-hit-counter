@@ -4,7 +4,7 @@ Donate link: http://www.hughlashbrooke.com/donate
 Tags: post, views, counter, hits, analytics, stats, statistics, count
 Requires at least: 4.0
 Tested up to: 4.0.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,7 +54,15 @@ Installing "Post Hit Counter" can be done either by searching for "Post Hit Coun
 
 When you order posts by hit count in the post list table in the dashboard it will not show posts that have 0 hits. This is due to a limitation in WordPress itself, which will (most likely) be fixed in future versions. Once WordPress is able to accommodate this then I will update the plugin to work accordingly
 
+= What is the shortcode for displaying the post hit count? =
+
+The shortcode to display an individual post's hit count is: `[hit_count]`. If you use the shortcode without any parameters then it will displaying the hit count for the current post. Alternatively you can specify which post's hit count you would like to display by using the shortcode like this: `[hit_count post=123]` where `123` is the ID of the post.
+
 == Changelog ==
+
+= 1.2.1 =
+* 2014-12-05
+* [TWEAK] Renaming shortcode for consistency
 
 = 1.2 =
 * 2014-11-28
@@ -80,6 +88,9 @@ When you order posts by hit count in the post list table in the dashboard it wil
 * Initial release #boom
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+* Renaming shortcode for consistency - see plugin FAQ for details.
 
 = 1.2 =
 * Adding frontend and dashboard widgets for displaying most viewed posts as well as shortcode for showing hit count for single posts
