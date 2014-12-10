@@ -123,11 +123,15 @@ class Post_Hit_Counter {
 		// Add views to the admin bar on the frontend
 		add_action( 'admin_bar_menu', array( $this, 'display_post_views_admin_bar' ), 999 );
 
+		// Reste hit count for single post in admin
+		add_action( 'wp_ajax_reset_hit_count', array( $this, 'reset_hit_count' ) );
+
 		// Load frontend CSS
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 10 );
 
-		// Load admin CSS
+		// Load admin CSS & JS
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ), 10, 1 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10, 1 );
 
 		// Load widgets
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
@@ -291,6 +295,7 @@ class Post_Hit_Counter {
 			<div class="misc-pub-section misc-pub-post-views" id="post-views">
 				<?php _e( 'Hits:', 'post-hit-counter' ); ?>
 				<strong><?php echo esc_html( $views ); ?></strong>
+				<span class="dashicons dashicons-update hit-count-reset" title="<?php _e( 'Reset hit count', 'post-hit-counter' ); ?>"></span>
 			</div>
 			<?php
 		}
@@ -436,6 +441,25 @@ class Post_Hit_Counter {
 	}
 
 	/**
+	 * Reset the post hit count via AJAX
+	 * @return void
+	 */
+	public function reset_hit_count() {
+
+		if( isset( $_POST['post_id'] ) ) {
+
+			$post_id = intval( $_POST['post_id'] );
+
+			if( $post_id ) {
+				update_post_meta( $post_id, $this->_field, 0 );
+				echo 0;
+			}
+		}
+
+		exit;
+	}
+
+	/**
 	 * Load frontend CSS.
 	 * @access  public
 	 * @since   1.1.0
@@ -469,6 +493,21 @@ class Post_Hit_Counter {
 			wp_enqueue_style( $this->_token . '-admin' );
 		}
 	} // End admin_enqueue_styles ()
+
+	/**
+	 * Load admin Javascript.
+	 * @access  public
+	 * @since   1.3.0
+	 * @return  void
+	 */
+	public function admin_enqueue_scripts ( $hook = '' ) {
+		global $pagenow, $typenow;
+
+		if( 'post.php' == $pagenow && $this->count_post_type( $typenow ) ) {
+			wp_register_script( $this->_token . '-admin', esc_url( $this->assets_url ) . 'js/admin' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
+			wp_enqueue_script( $this->_token . '-admin' );
+		}
+	} // End admin_enqueue_scripts ()
 
 	/**
 	 * Load plugin localisation
