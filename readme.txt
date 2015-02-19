@@ -3,8 +3,8 @@ Contributors: hlashbrooke
 Donate link: http://www.hughlashbrooke.com/donate
 Tags: post, views, counter, hits, analytics, stats, statistics, count
 Requires at least: 4.0
-Tested up to: 4.1
-Stable tag: 1.3
+Tested up to: 4.1.1
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,9 +60,13 @@ The shortcode to display an individual post's hit count is: `[hit_count]`. If yo
 
 = How do I reset the hit count for a post? =
 
-On the opst edit screen, there is a refresh icon next to the hit count - simply click that and the hit count for that post will be reset to 0 without reloading the page.
+On the post edit screen, there is a refresh icon next to the hit count - simply click that and the hit count for that post will be reset to 0 without reloading the page.
 
 == Changelog ==
+
+= 1.3.1 =
+* 2015-02-19
+* [FIX] Fixing 'Undefined property' on post edit screen
 
 = 1.3 =
 * 2014-12-10
@@ -97,5 +101,5 @@ On the opst edit screen, there is a refresh icon next to the hit count - simply 
 
 == Upgrade Notice ==
 
-= 1.3 =
-* Adding button to reset hit count for specific post.
+= 1.3.1 =
+* Minor bug fix.

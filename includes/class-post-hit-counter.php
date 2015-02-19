@@ -77,6 +77,14 @@ class Post_Hit_Counter {
 	public $active_types = false;
 
 	/**
+	 * Suffix for Javascripts.
+	 * @var     string
+	 * @access  public
+	 * @since   1.0.0
+	 */
+	public $script_suffix;
+
+	/**
 	 * The blocked user roles for this plugin.
 	 * @var     string
 	 * @access  public
@@ -100,6 +108,7 @@ class Post_Hit_Counter {
 		$this->dir = dirname( $this->file );
 		$this->assets_dir = trailingslashit( $this->dir ) . 'assets';
 		$this->assets_url = esc_url( trailingslashit( plugins_url( '/assets/', $this->file ) ) );
+		$this->script_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		$this->active_types = apply_filters( $this->_token . '_active_posttypes', get_option( 'phc_active_posttypes', false ) );
 		$this->blocked_roles = apply_filters( $this->_token . '_blocked_roles', get_option( 'phc_blocked_roles', array() ) );
@@ -488,7 +497,7 @@ class Post_Hit_Counter {
 	public function admin_enqueue_styles ( $hook = '' ) {
 		global $pagenow, $typenow;
 
-		if( 'index.php' == $pagenow || ( 'post.php' == $pagenow && $this->count_post_type( $typenow ) ) || ( isset( $_GET['page'] ) && 'post_hit_counter_settings' == $_GET['page'] ) ) {
+		if( 'index.php' == $pagenow || ( in_array( $pagenow, array( 'post.php', 'edit.php' ) ) && $this->count_post_type( $typenow ) ) || ( isset( $_GET['page'] ) && 'post_hit_counter_settings' == $_GET['page'] ) ) {
 			wp_register_style( $this->_token . '-admin', esc_url( $this->assets_url ) . 'css/admin.css', array(), $this->_version );
 			wp_enqueue_style( $this->_token . '-admin' );
 		}
