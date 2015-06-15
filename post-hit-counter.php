@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name: Post Hit Counter
- * Version: 1.3.1
+ * Version: 1.3.2
  * Plugin URI: https://wordpress.org/plugins/post-hit-counter/
  * Description: A counter to track how many times your posts are viewed.
  * Author: Hugh Lashbrooke
  * Author URI: http://www.hughlashbrooke.com/
  * Requires at least: 4.0
- * Tested up to: 4.1.1
+ * Tested up to: 4.2.2
  *
  * Text Domain: post-hit-counter
  * Domain Path: /lang/
@@ -36,7 +36,7 @@ require_once( 'includes/widgets/class-post-hit-counter-widget-most-viewed-posts.
  * @return object Post_Hit_Counter
  */
 function Post_Hit_Counter () {
-	$instance = Post_Hit_Counter::instance( __FILE__, '1.3.1' );
+	$instance = Post_Hit_Counter::instance( __FILE__, '1.3.2' );
 
 	if( is_null( $instance->settings ) ) {
 		$instance->settings = Post_Hit_Counter_Settings::instance( $instance );

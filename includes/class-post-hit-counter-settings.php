@@ -233,7 +233,7 @@ class Post_Hit_Counter_Settings {
 					}
 
 					// Output tab
-					$html .= '<a href="' . $tab_link . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . "\n";
+					$html .= '<a href="' . esc_url( $tab_link ) . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . "\n";
 
 					++$c;
 				}
